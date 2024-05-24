@@ -1,7 +1,7 @@
 use anchor_lang::prelude::*;
 use anchor_spl::token::{self, Mint, MintTo, TokenAccount, Token};
 
-declare_id!("YourProgramIDHere");
+declare_id!("EVY3ciLz1hnQizj4YVtAWBjrG7sUfAH6yJemiHgyhLw6");
 
 #[program]
 pub mod solanadapp {
