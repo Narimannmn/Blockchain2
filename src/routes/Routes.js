@@ -8,7 +8,7 @@ export const publicRoutes = [
         label: 'Sign Up',
         path: '/sign-up',
         icon: UserAddOutlined,
-        component: lazy(() => import(/* webpackChunkName: "sign-up" */ '../components/Signup')),
+        component: lazy(() => import(/* webpackChunkName: "sign-up" */ '../components/SignupPage')),
     },
 ];
 

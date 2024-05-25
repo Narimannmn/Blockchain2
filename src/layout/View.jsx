@@ -2,22 +2,23 @@ import React, { useState } from 'react';
 import {
     MenuFoldOutlined,
     MenuUnfoldOutlined,
-    UploadOutlined,
-    UserOutlined,
-    VideoCameraOutlined,
 } from '@ant-design/icons';
 import { Button, Layout, Menu, theme } from 'antd';
+import { Link } from "react-router-dom";
 import Router from "../routes/Router";
-import {Link} from "react-router-dom";
-import {protectedRoutes, publicRoutes} from "../routes/Routes";
+import { protectedRoutes, publicRoutes } from "../routes/Routes";
+import WalletButton from "../provider/WalletButton";
+
 const { Header, Sider, Content } = Layout;
+
 const View = () => {
     const [collapsed, setCollapsed] = useState(false);
     const {
         token: { colorBgContainer, borderRadiusLG },
     } = theme.useToken();
+
     return (
-        <Layout style={{height:'100vh'}}>
+        <Layout style={{ height: '100vh' }}>
             <Sider trigger={null} collapsible collapsed={collapsed}>
                 <div className="demo-logo-vertical" />
                 <Menu
@@ -31,7 +32,7 @@ const View = () => {
                         </Menu.Item>
                     ))}
                     {protectedRoutes.map((route, idx) => (
-                        <Menu.Item key={idx} icon={<route.icon />}>
+                        <Menu.Item key={idx + 1} icon={<route.icon />}>
                             <Link to={route.path}>{route.label}</Link>
                         </Menu.Item>
                     ))}
@@ -40,8 +41,11 @@ const View = () => {
             <Layout>
                 <Header
                     style={{
-                        padding: 0,
+                        padding: '0 16px',
                         background: colorBgContainer,
+                        display: 'flex',
+                        alignItems: 'center',
+                        justifyContent: 'space-between',
                     }}
                 >
                     <Button
@@ -54,6 +58,7 @@ const View = () => {
                             height: 64,
                         }}
                     />
+                    <WalletButton />
                 </Header>
                 <Content
                     style={{
@@ -70,4 +75,5 @@ const View = () => {
         </Layout>
     );
 };
+
 export default View;
